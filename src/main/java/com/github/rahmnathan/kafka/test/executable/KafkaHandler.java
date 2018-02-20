@@ -1,5 +1,7 @@
 package com.github.rahmnathan.kafka.test.executable;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,14 +13,20 @@ import javax.annotation.ManagedBean;
 @ManagedBean
 public class KafkaHandler {
     private final Logger logger = LoggerFactory.getLogger(KafkaHandler.class);
-    private final KafkaTemplate<String, MyDataObject> template;
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final KafkaTemplate<String, String> template;
 
-    public KafkaHandler(KafkaTemplate<String, MyDataObject> template) {
+    public KafkaHandler(KafkaTemplate<String, String> template) {
         this.template = template;
     }
 
-    public void run() {
-        template.send("myTopic", new MyDataObject("Nathan", "Joppa asdf", 23));
+    public void run(){
+        try {
+            MyDataObject myDataObject = new MyDataObject("Nathan", "Joppa asdf", 23);
+            template.send("myTopic", objectMapper.writeValueAsString(myDataObject));
+        }catch (JsonProcessingException e){
+            logger.error("JSON FAILURE", e);
+        }
     }
 
     @KafkaListener(topics = "myTopic")
