@@ -1,5 +1,6 @@
-package com.github.rahmnathan.kafka.test.executable;
+package com.github.rahmnathan.kafka.test.web;
 
+import com.github.rahmnathan.kafka.test.control.KafkaHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;

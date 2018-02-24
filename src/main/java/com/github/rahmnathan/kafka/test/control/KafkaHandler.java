@@ -1,13 +1,12 @@
-package com.github.rahmnathan.kafka.test.executable;
+package com.github.rahmnathan.kafka.test.control;
 
+import com.github.rahmnathan.kafka.test.data.MyDataObject;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import javax.annotation.ManagedBean;
-import javax.annotation.PostConstruct;
 
 @ManagedBean
 public class KafkaHandler {

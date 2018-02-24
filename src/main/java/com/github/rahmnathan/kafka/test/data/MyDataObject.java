@@ -1,4 +1,4 @@
-package com.github.rahmnathan.kafka.test.executable;
+package com.github.rahmnathan.kafka.test.data;
 
 import java.io.Serializable;
 import java.util.Objects;

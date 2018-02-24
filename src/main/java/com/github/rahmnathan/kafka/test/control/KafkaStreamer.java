@@ -1,5 +1,6 @@
-package com.github.rahmnathan.kafka.test.executable;
+package com.github.rahmnathan.kafka.test.control;
 
+import com.github.rahmnathan.kafka.test.data.MyDataObject;
 import org.apache.kafka.streams.kstream.KStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

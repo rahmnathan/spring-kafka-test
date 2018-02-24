@@ -1,5 +1,7 @@
-package com.github.rahmnathan.kafka.test.executable;
+package com.github.rahmnathan.kafka.test.config;
 
+import com.github.rahmnathan.kafka.test.data.MyDataObject;
+import com.github.rahmnathan.kafka.test.serialization.MySerde;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
