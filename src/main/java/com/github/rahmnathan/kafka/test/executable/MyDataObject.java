@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class MyDataObject implements Serializable {
-    private static final long serialVersionUID = 42L;
-    private final String name;
-    private final String address;
-    private final int age;
+    private String name;
+    private String address;
+    private int age;
+
+    public MyDataObject() {
+    }
 
     public MyDataObject(String name, String address, int age) {
         this.name = name;
