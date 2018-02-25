@@ -4,17 +4,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class MyDataObject implements Serializable {
-    private String name;
+    private String id;
     private String address;
+    private String name;
     private int age;
 
-    public MyDataObject() {
-    }
-
-    public MyDataObject(String name, String address, int age) {
-        this.name = name;
-        this.address = address;
-        this.age = age;
+    public String getId() {
+        return id;
     }
 
     public String getName() {

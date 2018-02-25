@@ -4,10 +4,11 @@ import com.github.rahmnathan.kafka.test.data.MyDataObject;
 import org.apache.kafka.streams.kstream.KStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.kafka.core.StreamsBuilderFactoryBean;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
+import java.util.HashMap;
+import java.util.Map;
 
 @ManagedBean
 public class KafkaStreamer {
@@ -19,8 +20,15 @@ public class KafkaStreamer {
     }
 
     @PostConstruct
-    public void streamTest(){
+    public Map<String, MyDataObject> getEventsByAge(){
+        Map<String, MyDataObject> dataObjectMap = new HashMap<>();
+
         myKStream.filter((key, value) -> value.getAge() == 23)
-                .foreach((key, value) -> logger.info("Key: {} Value: {}", key, value));
+                .foreach((key, value) -> {
+                    logger.info("Key: {} Value: {}", key, value);
+                    dataObjectMap.put(key, value);
+                });
+
+        return dataObjectMap;
     }
 }

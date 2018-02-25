@@ -17,10 +17,8 @@ public class KafkaHandler {
         this.template = template;
     }
 
-//    @PostConstruct
-    public void run() {
-        MyDataObject myDataObject = new MyDataObject("Nathan", "Joppa asdf", 23);
-        template.send("myTopic2", "myTestKey", myDataObject);
+    public void sendEvent(MyDataObject myDataObject) {
+        template.send("myTopic", myDataObject.getId(), myDataObject);
     }
 
 //    @KafkaListener(topics = "myTopic2")

@@ -22,7 +22,7 @@ public class MyConfig {
     public StreamsConfig kStreamsConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, UUID.randomUUID().toString());
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "10.100.114.59:9092");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.1.8:9092");
 
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, MySerde.class);
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
@@ -37,6 +37,6 @@ public class MyConfig {
 
     @Bean
     public KStream<String, MyDataObject> kStream(StreamsBuilder kStreamBuilder) {
-        return kStreamBuilder.stream("myTopic2");
+        return kStreamBuilder.stream("myTopic");
     }
 }
